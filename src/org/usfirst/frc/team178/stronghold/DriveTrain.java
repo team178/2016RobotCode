@@ -19,17 +19,24 @@ public class DriveTrain {
 	
 	public void drive(Joystick joystick){
 		double xVal,yVal;//zVal;
-		xVal = joystick.getX();
-		yVal = joystick.getY();
+		xVal = -1*joystick.getY();
+		yVal = -1*joystick.getX();
 		//ZVal not needed. We don't really know what the Z axis is.
 		//zVal = joystick.getZ();
 		
 		// 6wl tank drive has two motors on one gearbox that drive in the same direction.
-		if(Math.abs(xVal)>0.2 || Math.abs(yVal)>0.2){
-			left1.set(1*yVal*(-xVal));
-			left2.set(1*yVal*(-xVal));
-			right1.set(1*yVal*xVal);
-			right2.set(1*yVal*xVal);
+		if(Math.abs(xVal)>0.1 || Math.abs(yVal)>0.1){
+			left1.set(-yVal+xVal);
+			left2.set(-yVal+xVal);
+			System.out.println(1*yVal);
+			right1.set(-yVal-xVal);
+			right2.set(-yVal-xVal);
+		}
+		else{
+			left1.set(0);
+			left2.set(0);
+			right1.set(0);
+			right2.set(0);
 		}
 		
 		

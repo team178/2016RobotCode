@@ -18,7 +18,7 @@ public class Robot extends IterativeRobot {
     final String defaultAuto = "Default";
     final String customAuto = "My Auto";
     String autoSelected;
-    SendableChooser chooser;
+    //SendableChooser chooser;
 	DriveTrain drivetrain;
 	Joystick joystick;
 	
@@ -27,9 +27,9 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    	joystick = new Joystick(1);
+    	joystick = new Joystick(0);
         drivetrain = new DriveTrain();
-        SmartDashboard.putData("Auto choices", chooser);
+        //SmartDashboard.putData("Auto choices", chooser);
     }
     
 	/**
@@ -42,7 +42,7 @@ public class Robot extends IterativeRobot {
 	 * If using the SendableChooser make sure to add them to the chooser code above as well.
 	 */
     public void autonomousInit() {
-    	autoSelected = (String) chooser.getSelected();
+    	//autoSelected = (String) chooser.getSelected();
 //		autoSelected = SmartDashboard.getString("Auto Selector", defaultAuto);
 		System.out.println("Auto selected: " + autoSelected);
     }
