@@ -2,6 +2,7 @@ package org.usfirst.frc.team178.stronghold;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.VictorSP;
+import java.lang.Math;
 
 public class DriveTrain {
 	VictorSP left1;
@@ -17,10 +18,20 @@ public class DriveTrain {
 	}
 	
 	public void drive(Joystick joystick){
-		double xVal,yVal,zVal;
+		double xVal,yVal;//zVal;
 		xVal = joystick.getX();
 		yVal = joystick.getY();
-		zVal = joystick.getZ();
+		//ZVal not needed. We don't really know what the Z axis is.
+		//zVal = joystick.getZ();
+		
+		// 6wl tank drive has two motors on one gearbox that drive in the same direction.
+		if(Math.abs(xVal)>0.2 || Math.abs(yVal)>0.2){
+			left1.set(1*yVal*(-xVal));
+			left2.set(1*yVal*(-xVal));
+			right1.set(1*yVal*xVal);
+			right2.set(1*yVal*xVal);
+		}
+		
 		
 	}
 	
