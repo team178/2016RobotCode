@@ -3,9 +3,6 @@ package org.usfirst.frc.team178.stronghold;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -15,11 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * directory.
  */
 public class Robot extends IterativeRobot {
-    final String defaultAuto = "Default";
-    final String customAuto = "My Auto";
-    String autoSelected;
-    //SendableChooser chooser;
-	DriveTrain drivetrain;
+    DriveTrain drivetrain;
 	Joystick joystick;
 	
     /**
@@ -27,9 +20,9 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+    	//This code intializes the robot. It is one of the first things called.
     	joystick = new Joystick(0);
         drivetrain = new DriveTrain();
-        //SmartDashboard.putData("Auto choices", chooser);
     }
     
 	/**
@@ -42,37 +35,29 @@ public class Robot extends IterativeRobot {
 	 * If using the SendableChooser make sure to add them to the chooser code above as well.
 	 */
     public void autonomousInit() {
-    	//autoSelected = (String) chooser.getSelected();
-//		autoSelected = SmartDashboard.getString("Auto Selector", defaultAuto);
-		System.out.println("Auto selected: " + autoSelected);
+    	//Place Autonomous initialization code here.
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-    	switch(autoSelected) {
-    	case customAuto:
-        //Put custom auto code here   
-            break;
-    	case defaultAuto:
-    	default:
-    	//Put default auto code here
-            break;
-    	}
+    	//This is the code that will run during the autonomous period.
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        drivetrain.drive(joystick);
+        //The following code refers to a different class. It passes the joystick as the argument.
+    	drivetrain.drive(joystick);
     }
     
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
+    	//We never really use test mode. Maybe we can this year?
     
     }
     
