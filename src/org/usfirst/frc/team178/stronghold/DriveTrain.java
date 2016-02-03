@@ -26,9 +26,10 @@ public class DriveTrain {
 	public void drive(Joystick joystick){
 		//Joystick returns from -1 to 1, motor takes values from -1 to 1.
 		//TODO clean up this section. The negatives are quite ghetto. It's hard to understand.
-		double xVal,yVal;//zVal; -does zVal mean twist?
+		double xVal,yVal,zVal;//-does zVal mean twist?
 		xVal = -1*joystick.getY();
-		yVal = -1*joystick.getX();//We should change/add another double twistValue, and use joystick.getTwist()		
+		yVal = -1*joystick.getX();//We should change/add another double twistValue(zVal), and use joystick.getTwist()
+		zVal = -1*joystick.getTwist();
 				
 		// 6wl tank drive has two motors on one gearbox that drive in the same direction.
 		//TODO Debug and optimize this code. It does things weirdly. It's more logical to turn based on twist.
@@ -40,6 +41,13 @@ public class DriveTrain {
 			// Debugging code System.out.println(1*yVal);
 			right1.set(-yVal-xVal);
 			right2.set(-yVal-xVal);
+		}
+		//This is an attempt at twist code for turing.
+		else if(Math.abs(zVal)>0.1){
+			left1.set(zVal);
+			left2.set(zVal);
+			right1.set(zVal);
+			right2.set(zVal);
 		}
 		//Without this, the motor speed is never unset. 
 		//The robot would continue moving at its last speed. This makes it stop.
