@@ -15,7 +15,7 @@ public class DriveTrain {
 	DriveTrain(){
 		//This is the constructor. When it is called it initializes the drivetrain
 		//Each of these variables below is a VictorSP. These are motor controllers. We create a variable to represent 
-		//	them and specify which PWM output they reside on in the constructor for them.
+		//them and specify which PWM output they reside on in the constructor for them.
 		left1 = new VictorSP(0);
 		left2 = new VictorSP(1);
 		right1 = new VictorSP(2);
