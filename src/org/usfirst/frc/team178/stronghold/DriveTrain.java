@@ -26,9 +26,9 @@ public class DriveTrain {
 	public void drive(Joystick joystick){
 		//Joystick returns from -1 to 1, motor takes values from -1 to 1.
 		//TODO clean up this section. The negatives are quite ghetto. It's hard to understand.
-		double xVal,yVal,zVal;//-does zVal mean twist?
+		double xVal,yVal,zVal;
 		xVal = -1*joystick.getY();
-		yVal = -1*joystick.getX();//We should change/add another double twistValue(zVal), and use joystick.getTwist()
+		yVal = -1*joystick.getX();
 		zVal = -1*joystick.getTwist();
 				
 				System.out.println(zVal);
@@ -40,10 +40,11 @@ public class DriveTrain {
 			left1.set(-yVal+xVal);
 			left2.set(-yVal+xVal);
 			// Debugging code System.out.println(1*yVal);
+			//We should also remove the part of this that makes left and right turn.
 			right1.set(-yVal-xVal);
 			right2.set(-yVal-xVal);
 		}
-		//This is an attempt at twist code for turing.
+		//This is the code for twist turning.
 		else if(Math.abs(zVal)>0.1){
 			left1.set(-zVal);
 			left2.set(-zVal);
