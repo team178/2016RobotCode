@@ -45,10 +45,10 @@ public class DriveTrain {
 		}
 		//This is an attempt at twist code for turing.
 		else if(Math.abs(zVal)>0.1){
-			left1.set(zVal);
-			left2.set(zVal);
-			right1.set(zVal);
-			right2.set(zVal);
+			left1.set(-zVal);
+			left2.set(-zVal);
+			right1.set(-zVal);
+			right2.set(-zVal);
 		}
 		//Without this, the motor speed is never unset. 
 		//The robot would continue moving at its last speed. This makes it stop.
