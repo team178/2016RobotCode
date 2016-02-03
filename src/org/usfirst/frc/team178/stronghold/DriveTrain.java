@@ -26,9 +26,9 @@ public class DriveTrain {
 	public void drive(Joystick joystick){
 		//Joystick returns from -1 to 1, motor takes values from -1 to 1.
 		//TODO clean up this section. The negatives are quite ghetto. It's hard to understand.
-		double xVal,yVal;//zVal;
+		double xVal,yVal;//zVal; -does zVal mean twist?
 		xVal = -1*joystick.getY();
-		yVal = -1*joystick.getX();		
+		yVal = -1*joystick.getX();//We should change/add another double twistValue, and use joystick.getTwist()		
 				
 		// 6wl tank drive has two motors on one gearbox that drive in the same direction.
 		//TODO Debug and optimize this code. It does things weirdly. It's more logical to turn based on twist.
