@@ -31,6 +31,7 @@ public class DriveTrain {
 		yVal = -1*joystick.getX();//We should change/add another double twistValue(zVal), and use joystick.getTwist()
 		zVal = -1*joystick.getTwist();
 				
+				System.out.println(zVal);
 		// 6wl tank drive has two motors on one gearbox that drive in the same direction.
 		//TODO Debug and optimize this code. It does things weirdly. It's more logical to turn based on twist.
 		//The if condition implements what's called a dead zone. The controllers have some variances to them, 
