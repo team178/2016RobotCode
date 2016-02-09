@@ -31,26 +31,25 @@ public class DriveTrain {
 		yVal = -1*joystick.getX();
 		zVal = -1*joystick.getTwist();
 				
-				System.out.println(zVal);
 		// 6wl tank drive has two motors on one gearbox that drive in the same direction.
 		//TODO Debug and optimize this code. It does things weirdly. It's more logical to turn based on twist.
 		//The if condition implements what's called a dead zone. The controllers have some variances to them, 
 		//and this makes sure that the robot doesn't do anything we don't want it to.
-		if(Math.abs(xVal)>0.1 || Math.abs(yVal)>0.1){
-			left1.set(-yVal+xVal);
-			left2.set(-yVal+xVal);
+		if(Math.abs(xVal)>0.1 ||/* Math.abs(yVal)>0.1 */ Math.abs(zVal)>0.1){
+			left1.set(-zVal+xVal);
+			left2.set(-zVal+xVal);
 			// Debugging code System.out.println(1*yVal);
 			//We should also remove the part of this that makes left and right turn.
-			right1.set(-yVal-xVal);
-			right2.set(-yVal-xVal);
+			right1.set(-zVal-xVal);
+			right2.set(-zVal-xVal);
 		}
 		//This is the code for twist turning.
-		else if(Math.abs(zVal)>0.1){
-			left1.set(-zVal);
-			left2.set(-zVal);
-			right1.set(-zVal);
-			right2.set(-zVal);
-		}
+//		else if(Math.abs(zVal)>0.1){
+//			left1.set(-zVal);
+//			left2.set(-zVal);
+//			right1.set(-zVal);
+//			right2.set(-zVal);
+//		}
 		//Without this, the motor speed is never unset. 
 		//The robot would continue moving at its last speed. This makes it stop.
 		else{
