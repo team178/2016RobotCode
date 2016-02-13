@@ -12,19 +12,15 @@ public class DriveTrain {
 	CANTalon left2;
 	CANTalon right1;
 	CANTalon right2;
-	CANTalon canMotor;
-	CANTalon canMotor2;
 	
 	DriveTrain(){
 		//This is the constructor. When it is called it initializes the drivetrain
 		//Each of these variables below is a VictorSP. These are motor controllers. We create a variable to represent 
 		//them and specify which PWM output they reside on in the constructor for them.
-		left1 = new CANTalon(0);
-		left2 = new CANTalon(1);
-		right1 = new CANTalon(2);
-		right2 = new CANTalon(3);
-		canMotor = new CANTalon(10);
-		canMotor2 = new CANTalon (11);
+		left1 = new CANTalon(10);
+		left2 = new CANTalon(11);
+		right1 = new CANTalon(14);
+		right2 = new CANTalon(15);
 	}
 	
 	public void drive(Joystick joystick){
@@ -53,29 +49,7 @@ public class DriveTrain {
 			right2.set(0);
 		}
 		
-		if(joystick.getRawButton(1)){
-			startCANMotorTest(canMotor,canMotor2);
-		}
-		else {
-			stopCANMotorTest(canMotor,canMotor2);
-		}
-		if(joystick.getRawButton(2)) {
-			startCANMotorTest (canMotor,canMotor2);
-		}
-		else {
-			stopCANMotorTest (canMotor,canMotor2);
-		}
-		//SmartDashboard.putNumber("Rotation", );
 	}
 	
-	public void startCANMotorTest(CANTalon canTalon, CANTalon  canTalon2){
-		canTalon.set(1);
-		canTalon.set(1);
-	}
-	
-	public void stopCANMotorTest(CANTalon canTalon, CANTalon canTalon2){
-		canTalon.set(0);
-		canTalon.set(0);
-	}
-	
+		
 }

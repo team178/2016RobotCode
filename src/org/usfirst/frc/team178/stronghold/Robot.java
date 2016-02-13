@@ -17,6 +17,7 @@ public class Robot extends IterativeRobot {
     DriveTrain drivetrain;
 	Joystick joystick;
 	Relay lightRelay;
+	Kicker kicker;
 	
     /**
      * This function is run when the robot is first started up and should be
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
         drivetrain = new DriveTrain();
         //The code below initializes the relay that controls the light on the front camera.
         lightRelay = new Relay(0);
+        kicker = new Kicker();
     }
     
 	/**
@@ -41,6 +43,8 @@ public class Robot extends IterativeRobot {
 	 */
     public void autonomousInit() {
     	//Place Autonomous initialization code here.
+    	//The code below is for the relay controlling the light on front camera, it sets a direction(forward).
+    	lightRelay.set(Value.kForward);
     }
 
     /**
@@ -49,8 +53,7 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
     	//This is the code that will run during the autonomous period.
     	
-    	//The code below is for the relay controlling the light on front camera, it sets a direction(forward).
-	lightRelay.set(Value.kForward);
+    	
     }
 
     /**
@@ -59,8 +62,9 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         //The following code refers to a different class. It passes the joystick as the argument.
     	drivetrain.drive(joystick);
+    	kicker.kick(joystick);
     	//The code below is for the relay controlling the light on front camera, it sets a direction(forward).
-	lightRelay.set(Value.kForward);
+    	lightRelay.set(Value.kForward);
     }
     
     /**
