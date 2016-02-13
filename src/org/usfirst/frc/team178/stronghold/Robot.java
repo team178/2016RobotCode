@@ -3,7 +3,7 @@ package org.usfirst.frc.team178.stronghold;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Relay.Value;
 
 /**
  * The VM is configured to automatically run this class, and to call the
