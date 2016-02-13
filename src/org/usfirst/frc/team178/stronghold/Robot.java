@@ -3,6 +3,7 @@ package org.usfirst.frc.team178.stronghold;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -14,7 +15,7 @@ import edu.wpi.first.wpilibj.Joystick;
 public class Robot extends IterativeRobot {
     DriveTrain drivetrain;
 	Joystick joystick;
-	
+	NetworkTable sDashboard;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -23,6 +24,12 @@ public class Robot extends IterativeRobot {
     	//This code intializes the robot. It is one of the first things called.
     	joystick = new Joystick(0);
         drivetrain = new DriveTrain();
+        //The following code is **currently** experimental. It initializes a Network Table for communication with the robot.
+        NetworkTable.setServerMode();
+        NetworkTable.setTeam(178);
+        NetworkTable.setPort(1735);
+        NetworkTable.getTable("Smart Dashboard");
+        
     }
     
 	/**
