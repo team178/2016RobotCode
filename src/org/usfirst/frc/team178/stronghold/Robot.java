@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
+import edu.wpi.first.wpilibj.CANTalon;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,7 +19,6 @@ public class Robot extends IterativeRobot {
 	Joystick joystick;
 	Relay lightRelay;
 	Kicker kicker;
-	
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
