@@ -24,6 +24,9 @@ public class Kicker {
 		if(this.joystick.getRawButton(12)){
 			setKickerSpeed(-1);
 		}
+		else if(this.joystick.getRawButton(11)){
+			setKickerSpeed(.05);
+		}
 		else{
 			setKickerSpeed(0);
 		}
