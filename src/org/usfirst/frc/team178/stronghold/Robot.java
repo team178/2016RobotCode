@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Relay.Value;
+import edu.wpi.first.wpilibj.CANTalon;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -17,6 +18,8 @@ public class Robot extends IterativeRobot {
     DriveTrain drivetrain;
 	Joystick joystick;
 	Relay lightRelay;
+	CANTalon shooter1;
+	CANTalon shooter2;
 	
     /**
      * This function is run when the robot is first started up and should be
@@ -28,6 +31,8 @@ public class Robot extends IterativeRobot {
         drivetrain = new DriveTrain();
         //The code below initializes the relay that controls the light on the front camera.
         lightRelay = new Relay(0);
+        shooter1 = new CANTalon(12);
+        shooter2 = new CANTalon(13);
     }
     
 	/**
@@ -60,7 +65,17 @@ public class Robot extends IterativeRobot {
         //The following code refers to a different class. It passes the joystick as the argument.
     	drivetrain.drive(joystick);
     	//The code below is for the relay controlling the light on front camera, it sets a direction(forward).
-	lightRelay.set(Value.kForward);
+    	lightRelay.set(Value.kForward);
+	
+    	if(joystick.getRawButton(12))
+    	{
+    		shooter1.set(1);
+    		shooter2.set(1);
+    	}
+    	else
+    		shooter1.set(0);
+    		shooter2.set(0);
+	
     }
     
     /**
