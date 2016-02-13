@@ -48,9 +48,8 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
     	//This is the code that will run during the autonomous period.
     	
-    	//The code below is for the relay controlling the light on front camera, it sets a direction(forward) and turns it on.
-    	lightRelay.value(kForward);
-    	lightRelay.value(kOn);
+    	//The code below is for the relay controlling the light on front camera, it sets a direction(forward).
+	lightRelay.set(Value.kForward);
     }
 
     /**
@@ -59,9 +58,8 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         //The following code refers to a different class. It passes the joystick as the argument.
     	drivetrain.drive(joystick);
-    	//The code below is for the relay controlling the light on front camera, it sets a direction(forward) and turns it on.
-    	lightRelay.value(kForward);
-    	lightRelay.value(On);
+    	//The code below is for the relay controlling the light on front camera, it sets a direction(forward).
+	lightRelay.set(Value.kForward);
     }
     
     /**
